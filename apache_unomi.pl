@@ -36,6 +36,7 @@ help
 
 my $url = $ARGV[ 0 ];
 my $command = $ARGV[ 1 ];
+my $method = $ARGV[ 2 ];
 my $json_mevel = "{
 	'filters': [{
 		'id': 'boom',
@@ -90,8 +91,12 @@ else {
     say RED, 'Connection Failed: ' . $response->status_line();
 }};
 
-# _mevel_method();
-
-_ognl_method();
+if ($method eq "1") {
+	_mevel_method();
+} elsif ($method eq "2") {
+	_ognl_method();
+} else {
+	say RED, ("Please enter a method value of 1 or 2");
+}
 
 __END__
