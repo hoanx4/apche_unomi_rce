@@ -76,7 +76,7 @@ my $ua = new LWP::UserAgent();
 sub _mevel_method {
     my $response = $ua->post($url, Content => $json_mevel);
     if ($response->is_success()){
-    say GREEN, 'Connection Successul: ' . $response->status_line();
+	say GREEN, $response->decoded_content();
 }
 else {
     say RED, 'Connection Failed: ' . $response->status_line();
@@ -85,7 +85,7 @@ else {
 sub _ognl_method {
     my $response = $ua->post($url, Content => $json_mevel);
     if ($response->is_success()){
-    say GREEN, 'Connection Successul: ' . $response->status_line();
+	say GREEN,  $response->decoded_content();
 }
 else {
     say RED, 'Connection Failed: ' . $response->status_line();
